@@ -3,7 +3,7 @@ public:
     int lengthOfLongestSubstring(string s) {
         int h=0,i=0,n=s.size();
         string d="";
-        while(i<n){
+        for(int i=0;i<n;i++){
             if(d.find(s[i])==-1){
                 d+=s[i];
                 int f=d.size();
@@ -14,7 +14,6 @@ public:
                 d=d.substr(g+1);
                 d+=s[i];
             }
-            i++;
         }
         return h;
     }
