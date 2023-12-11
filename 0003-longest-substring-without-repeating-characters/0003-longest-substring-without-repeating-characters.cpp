@@ -8,7 +8,6 @@ public:
                 d+=s[i];
                 int f=d.size();
                 h=max(h,f);
-                cout<<d<<" "<<h<<endl;
             }
             else{
                 int g=d.find(s[i]);
