@@ -13,11 +13,18 @@ public:
     ListNode* mergeInBetween(ListNode* list1, int a, int b, ListNode* list2) {
         ListNode* temp=list1;
         ListNode* temp2=list1;
-        for(int i=0;i<a-1;i++){
-            temp=temp->next;
-        }
-        for(int j=0;j<b+1;j++){
-            temp2=temp2->next;
+        int i=0;
+        while(temp!=nullptr or temp2!=nullptr){
+            if(i<a-1){
+                temp=temp->next;
+            }
+            if(i<b+1){
+                temp2=temp2->next;
+            }
+            if(i>a-1 and i>b+1){
+                break;
+            }
+            i++;
         }
         while(list2!=nullptr){
             temp->next=list2;
