@@ -8,21 +8,15 @@ public:
             prof_difi[i]={difficulty[i],profit[i]};
         }
         sort(prof_difi.begin(),prof_difi.end());
-        for(int i=1;i<n;i++){
-            prof_difi[i].second=max(prof_difi[i].second,prof_difi[i-1].second);
-        }
-        int indi=0;
+        int index=0;
         int res=0;
+        int prof=0;
         for(int j=0;j<worker.size();j++){
-            int prof=0;
-            for(int k=0;k<n;k++){
-                if(worker[j]>=prof_difi[k].first){
-                    prof=prof_difi[k].second;
-                }
-                else{
-                    break;
-                }
+            while(index<n && worker[j]>=prof_difi[index].first){
+                prof=max(prof,prof_difi[index].second);
+                index++;
             }
+            //cout<<prof<<" "<<worker[j]<<" index "<<index<<" "<<prof_difi[last].first<<endl;
             res+=prof;
         }
         return res;
